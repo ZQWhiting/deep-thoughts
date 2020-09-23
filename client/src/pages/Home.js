@@ -7,6 +7,7 @@ import Auth from '../utils/auth';
 
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
+import ThoughtForm from '../components/ThoughtForm';
 
 const Home = () => {
 	const { loading, data } = useQuery(QUERY_THOUGHTS);
@@ -20,6 +21,11 @@ const Home = () => {
 		<main>
 			<div className='flex-row justify-space-between'>
 				<div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+					{loggedIn && (
+						<div className='col-12 mb-3'>
+							<ThoughtForm />
+						</div>
+					)}
 					{loading ? (
 						<div>Loading...</div>
 					) : (
